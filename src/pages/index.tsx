@@ -1,9 +1,12 @@
 import styled from "@emotion/styled";
 import type { NextPage } from "next";
 import Head from "next/head";
+import Header from "../Header";
+import LibraryMaintainer from "../LibraryMaintainer";
 import Loading from "../Loading";
-import NodeVersion from "../NodeVersion";
+import NoOne from "../NoOne";
 import useVersions from "../useVersions";
+import WebsiteServiceMaker from "../WebsiteServiceMaker";
 
 const Home: NextPage = () => {
   const versions = useVersions();
@@ -16,7 +19,7 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <h1>What Version of Node.JS?</h1>
+      <Header />
 
       {versions === null && <Loading />}
 
@@ -26,71 +29,16 @@ const Home: NextPage = () => {
 
           <Grid>
             <div>
-              <h3>Library Maintainer</h3>
-              Then you should use
-              {versions.currentVersions.map(v => (
-                <NodeVersion
-                  key={v.version}
-                  version={v.version}
-                  codename={v.codename}
-                  until={v.lts!}
-                />
-              ))}
-              But also run your tests against
-              {versions.activeVersions.map(v => (
-                <NodeVersion
-                  key={v.version}
-                  version={v.version}
-                  codename={v.codename}
-                  until={v.end!}
-                />
-              ))}
-              {versions.maintenanceVersions.map(v => (
-                <NodeVersion
-                  key={v.version}
-                  version={v.version}
-                  codename={v.codename}
-                  until={v.end!}
-                />
-              ))}
+              <LibraryMaintainer />
             </div>
             <div>
-              <h3>Website/Service Maker</h3>
-              Then you should use
-              {versions.activeVersions.map(v => (
-                <NodeVersion
-                  key={v.version}
-                  version={v.version}
-                  codename={v.codename}
-                  until={v.maintenance!}
-                />
-              ))}
-              But it is OK if you use
-              {versions.maintenanceVersions.map(v => (
-                <NodeVersion
-                  key={v.version}
-                  version={v.version}
-                  codename={v.codename}
-                  until={v.end!}
-                />
-              ))}
-              {versions.activeVersions.map(v => (
-                <NodeVersion
-                  key={v.version}
-                  version={v.version}
-                  codename={v.codename}
-                  until={v.end!}
-                />
-              ))}
+              <WebsiteServiceMaker />
             </div>
           </Grid>
 
-          <div>
-            <h3>No one should use</h3>
-            {versions.deadVersions.map(v => (
-              <NodeVersion key={v.version} version={v.version} codename={v.codename} />
-            ))}
-          </div>
+          <NoOneWrapper>
+            <NoOne />
+          </NoOneWrapper>
         </div>
       )}
     </div>
@@ -102,4 +50,13 @@ const Grid = styled.div`
   display: grid;
   grid-auto-columns: 1fr;
   grid-auto-flow: column;
+
+  @media only screen and (max-width: 700px) {
+    grid-auto-flow: row;
+  }
+`;
+
+const NoOneWrapper = styled.div`
+  margin-top: 4em;
+  margin-bottom: 2em;
 `;

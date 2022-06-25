@@ -1,5 +1,6 @@
-import { FC } from "react";
+import { FC, useMemo } from "react";
 import Date from "./Date";
+import { isInTheFuture, isInThePast } from "./dateUtils";
 
 interface Props {
   version: string;
@@ -8,15 +9,31 @@ interface Props {
 }
 
 const NodeVersion: FC<Props> = ({ version, codename, until }) => {
+  const untilText = useMemo(() => {
+    if (!until) {
+      return null;
+    }
+
+    if (isInTheFuture(until)) {
+      return (
+        <>
+          until <Date date={until} />
+        </>
+      );
+    }
+
+    if (isInThePast(until)) {
+      return <>ever</>;
+    }
+
+    return null;
+  }, [until]);
+
   return (
     <div>
       <>
         {version} {codename && <>({codename}) </>}
-        {until && (
-          <>
-            until <Date date={until} />
-          </>
-        )}
+        {untilText}
       </>
     </div>
   );

@@ -5,13 +5,20 @@ const dateSchema = z.preprocess(arg => {
   if (typeof arg == "string" || arg instanceof Date) return new Date(arg);
 }, z.date().optional());
 
-const responseVersionValidator = z.object({
+const responseVersionsOnlyValidator = z.object({
   start: dateSchema,
-  lts: dateSchema.nullable(),
-  maintenance: dateSchema.nullable(),
-  end: dateSchema,
-  codename: z.string().optional()
+  lts: dateSchema.optional(),
+  maintenance: dateSchema.optional(),
+  end: dateSchema
 });
+export type ResponseVersions = z.infer<typeof responseVersionsOnlyValidator>;
+
+const responseVersionValidator = z.intersection(
+  responseVersionsOnlyValidator,
+  z.object({
+    codename: z.string().optional()
+  })
+);
 type ResponseVersion = z.infer<typeof responseVersionValidator>;
 
 const versionValidator = z.string().min(1);
