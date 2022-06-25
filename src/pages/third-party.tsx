@@ -2,10 +2,10 @@ import styled from "@emotion/styled";
 import { getProjectLicenses } from "generate-license-file";
 import { ILicense } from "generate-license-file/dist/models/license";
 import { GetStaticProps } from "next";
-import Head from "next/head";
 import { FC, Fragment } from "react";
 import BackHomeLink from "../BackHomeLink";
 import Link from "../Link";
+import Seo from "../Seo";
 
 interface Props {
   licenses: ILicense[];
@@ -22,12 +22,12 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
 const LicensesPage: FC<Props> = ({ licenses }) => {
   return (
     <>
-      <Head>
-        <title>Licenses</title>
-        <meta name="description" content="Third-party licenses" />
-        <meta name="robots" content="noindex" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+      <Seo
+        title="Third-Party Libraries"
+        description="Third-Party Libraries used by What Version of Node.js?"
+        path="/third-party"
+        noIndex
+      />
 
       <PageWrapper>
         <BackHomeLink />

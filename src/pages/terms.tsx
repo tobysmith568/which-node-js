@@ -2,6 +2,7 @@ import fs from "fs/promises";
 import { GetStaticProps } from "next";
 import { FC } from "react";
 import MarkdownPage from "../MarkdownPage";
+import Seo from "../Seo";
 
 interface Props {
   termsMarkdown: string;
@@ -13,5 +14,15 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
   return { props: { termsMarkdown } };
 };
 
-const Terms: FC<Props> = ({ termsMarkdown }) => <MarkdownPage markdown={termsMarkdown} />;
+const Terms: FC<Props> = ({ termsMarkdown }) => (
+  <>
+    <Seo
+      title="Terms & Conditions"
+      description="Terms & Conditions for What Version of Node.js?"
+      path="/terms"
+      noIndex
+    />
+    <MarkdownPage markdown={termsMarkdown} />;
+  </>
+);
 export default Terms;
