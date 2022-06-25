@@ -1,7 +1,7 @@
 import { FC } from "react";
 
 interface Props {
-	date: Date;
+  date: Date;
 }
 
 const Date: FC<Props> = ({ date }) => <>{date.toLocaleDateString()}</>;
