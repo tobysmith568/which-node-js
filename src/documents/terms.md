@@ -25,7 +25,7 @@ For the purposes of these Terms and Conditions:
 
 - **Terms and Conditions** (also referred as "Terms") mean these Terms and Conditions that form the entire agreement between You and the Company regarding the use of the Service. This Terms and Conditions agreement has been created with the help of the [Free Terms and Conditions Generator](https://www.freeprivacypolicy.com/free-terms-and-conditions-generator/).
 - **Third-party Social Media Service** means any services or content (including data, information, products or services) provided by a third-party that may be displayed, included or made available by the Service.
-- **Website** refers to What version of Node?, accessible from [what-version-of-node.js.org](what-version-of-node.js.org)
+- **Website** refers to What version of Node?, accessible from [https://what-version-of-node.js.org](https://what-version-of-node.js.org)
 - **You** means the individual accessing or using the Service, or the company, or other legal entity on behalf of which such individual is accessing or using the Service, as applicable.
 
 # Acknowledgment

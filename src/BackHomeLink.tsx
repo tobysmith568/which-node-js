@@ -55,6 +55,6 @@ const ContentWrapper = styled.div`
 
 const Anchor = styled.a`
   color: black;
-  text-decoration: none;
+  text-decoration: none !important;
   font-weight: 700;
 `;

@@ -18,4 +18,9 @@ export default MarkdownPage;
 const PageWrapper = styled.div`
   max-width: 800px;
   margin: 3em auto 3em auto;
+
+  a {
+    color: #000;
+    text-decoration: underline;
+  }
 `;
