@@ -1,6 +1,7 @@
 import styled from "@emotion/styled";
 import type { NextPage } from "next";
 import Head from "next/head";
+import Footer from "../Footer";
 import Header from "../Header";
 import LibraryMaintainer from "../LibraryMaintainer";
 import Loading from "../Loading";
@@ -41,6 +42,8 @@ const Home: NextPage = () => {
           </NoOneWrapper>
         </div>
       )}
+
+      <Footer />
     </div>
   );
 };

@@ -13,7 +13,7 @@ const Header: FC = () => {
         ?
       </Title>
       <SubTitle>
-        An <i>unofficial</i> guide to what Node.js versions you should be using
+        An <i>unofficial</i> guide to what Node.js versions you should be using.
       </SubTitle>
     </Background>
   );
