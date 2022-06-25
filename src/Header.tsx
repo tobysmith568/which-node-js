@@ -23,6 +23,7 @@ export default Header;
 const Background = styled.div`
   background-color: #333;
   display: grid;
+  text-align: center;
 `;
 
 const Title = styled.h1`

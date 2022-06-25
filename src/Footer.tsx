@@ -43,6 +43,7 @@ const Background = styled.div`
   color: #fff;
   padding: 0.5em;
   min-height: 3em;
+  text-align: center;
 `;
 
 const Heart = styled.span`
