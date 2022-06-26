@@ -1,5 +1,4 @@
 import styled from "@emotion/styled";
-import Image from "next/image";
 import { FC } from "react";
 
 const Header: FC = () => {
@@ -8,7 +7,7 @@ const Header: FC = () => {
       <Title>
         What Version of
         <NodeJsLogo>
-          <Image src="/node-js-logo.svg" alt="Node.js" width={120} height={72} />
+          <img src="/node-js-logo.svg" alt="Node.js" width={120} height={72} />
         </NodeJsLogo>
         ?
       </Title>

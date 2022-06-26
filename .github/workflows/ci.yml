@@ -1,0 +1,51 @@
+name: CI/CD
+on:
+  push:
+    branches:
+      - renovate/*
+  pull_request:
+    branches:
+      - main
+      - renovate/*
+
+jobs:
+  CI:
+    name: Build and unit test
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+          registry-url: https://registry.npmjs.org/
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run ESLint
+        run: npx eslint ./src --max-warnings 0
+
+      - name: Run Prettier
+        run: npx prettier --check .
+
+      - name: Run CSpell
+        run: npx cspell **/*.*
+
+      - name: Build
+        run: npm run build
+
+      - name: Export
+        run: npm run export
+
+      # - name: Run Unit Tests
+      #   run: npm run test:ci
+
+      # - name: Codecov
+      #   uses: codecov/codecov-action@v3.1.0
+      #   with:
+      #     token: ${{ secrets.CODECOV_TOKEN }}
+      #     directory: coverage
