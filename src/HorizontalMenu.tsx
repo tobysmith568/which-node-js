@@ -17,7 +17,7 @@ const HorizontalMenu: FC<Props> = ({ menuItems }) => {
     <Menu>
       {menuItems.map(({ name, href, newTab }, i) => (
         <Fragment key={i}>
-          {i > 0 && <Divide />}
+          {i > 0 && <Divide data-testid="divide" />}
           <Link href={href} newTab={newTab}>
             {name}
           </Link>

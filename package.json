@@ -18,7 +18,9 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "export": "next export"
+    "export": "next export",
+    "test": "jest",
+    "test:ci": "jest --ci --coverage"
   },
   "bugs": {
     "url": "https://github.com/tobysmith568/what-node-js/issues"
@@ -34,6 +36,9 @@
   "devDependencies": {
     "@emotion/react": "^11.9.3",
     "@emotion/styled": "^11.9.3",
+    "@testing-library/jest-dom": "^5.16.4",
+    "@testing-library/react": "^13.3.0",
+    "@testing-library/user-event": "^14.2.1",
     "@tobysmith568/prettier-config": "^2.0.0",
     "@types/node": "18.0.0",
     "@types/react": "18.0.14",
@@ -43,6 +48,8 @@
     "eslint-config-next": "12.1.6",
     "eslint-config-prettier": "^8.5.0",
     "generate-license-file": "^1.3.0",
+    "jest": "^28.1.1",
+    "jest-environment-jsdom": "^28.1.1",
     "react-markdown": "^8.0.3",
     "typescript": "4.7.4"
   }

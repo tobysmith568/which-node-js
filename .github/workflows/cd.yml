@@ -1,4 +1,4 @@
-name: CI/CD
+name: CD
 on:
   push:
     branches:
@@ -37,14 +37,14 @@ jobs:
       - name: Export
         run: npm run export
 
-      # - name: Run Unit Tests
-      #   run: npm run test:ci
+      - name: Run Unit Tests
+        run: npm run test:ci
 
-      # - name: Codecov
-      #   uses: codecov/codecov-action@v3.1.0
-      #   with:
-      #     token: ${{ secrets.CODECOV_TOKEN }}
-      #     directory: coverage
+      - name: Codecov
+        uses: codecov/codecov-action@v3.1.0
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          directory: coverage
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3

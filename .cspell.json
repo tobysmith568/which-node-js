@@ -5,7 +5,7 @@
   "dictionaryDefinitions": [],
   "dictionaries": ["en-gb"],
   "words": ["timebombs"],
-  "ignoreWords": ["tobysmith"],
+  "ignoreWords": ["tobysmith", "data-testid"],
   "import": [],
   "ignoreRegExpList": []
 }
