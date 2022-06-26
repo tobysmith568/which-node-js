@@ -1,10 +1,10 @@
 {
   "$schema": "https://raw.githubusercontent.com/streetsidesoftware/cspell/main/cspell.schema.json",
   "version": "0.2",
-  "ignorePaths": [".next", "coverage", "node_modules", "out"],
+  "ignorePaths": [".next", "coverage", "node_modules", "out", "public"],
   "dictionaryDefinitions": [],
   "dictionaries": ["en-gb"],
-  "words": [],
+  "words": ["timebombs"],
   "ignoreWords": ["tobysmith"],
   "import": [],
   "ignoreRegExpList": []
