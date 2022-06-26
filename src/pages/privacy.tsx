@@ -22,7 +22,7 @@ const Privacy: FC<Props> = ({ privacyMarkdown }) => (
       path="/privacy"
       noIndex
     />
-    <MarkdownPage markdown={privacyMarkdown} />;
+    <MarkdownPage markdown={privacyMarkdown} />
   </>
 );
 export default Privacy;

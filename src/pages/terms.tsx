@@ -22,7 +22,7 @@ const Terms: FC<Props> = ({ termsMarkdown }) => (
       path="/terms"
       noIndex
     />
-    <MarkdownPage markdown={termsMarkdown} />;
+    <MarkdownPage markdown={termsMarkdown} />
   </>
 );
 export default Terms;

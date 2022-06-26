@@ -21,7 +21,7 @@ const Faq: FC<Props> = ({ faqMarkdown }) => (
       description="Frequently Asked Questions about What Version of Node.js?"
       path="/faq"
     />
-    <MarkdownPage markdown={faqMarkdown} />;
+    <MarkdownPage markdown={faqMarkdown} />
   </>
 );
 export default Faq;
