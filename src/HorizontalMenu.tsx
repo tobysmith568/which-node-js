@@ -32,6 +32,7 @@ const Menu = styled.div`
   margin-top: 0.8em;
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
 `;
 
 const Divide = styled.span`

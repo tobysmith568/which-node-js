@@ -5,11 +5,13 @@ const Header: FC = () => {
   return (
     <Background>
       <Title>
-        What Version of
-        <NodeJsLogo>
-          <img src="/node-js-logo.svg" alt="Node.js" width={120} height={72} />
-        </NodeJsLogo>
-        ?
+        <span>What Version of</span>
+        <NodeJsLogoWrapper>
+          <NodeJsLogo>
+            <img src="/node-js-logo.svg" alt="Node.js" width={120} height={72} />
+          </NodeJsLogo>
+          ?
+        </NodeJsLogoWrapper>
       </Title>
       <SubTitle>
         An <i>unofficial</i> guide to what Node.js versions you should be using.
@@ -23,6 +25,7 @@ const Background = styled.div`
   background-color: #333;
   display: grid;
   text-align: center;
+  padding: 0.5em;
 `;
 
 const Title = styled.h1`
@@ -32,10 +35,16 @@ const Title = styled.h1`
   flex-direction: row;
   align-items: center;
   margin-bottom: 0;
+  flex-wrap: wrap;
 `;
 
 const SubTitle = styled.p`
   color: #fff;
+`;
+
+const NodeJsLogoWrapper = styled.span`
+  display: flex;
+  align-items: center;
 `;
 
 const NodeJsLogo = styled.span`
