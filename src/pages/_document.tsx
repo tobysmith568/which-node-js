@@ -17,6 +17,12 @@ const Document: FC = () => {
         <meta name="application-name" content="What Version of Node.js?" />
         <meta name="msapplication-TileColor" content="#cccccc" />
         <meta name="theme-color" content="#cccccc"></meta>
+
+        <meta
+          name="google-site-verification"
+          // cspell:disable-next-line
+          content="PlUj3aq0Ed5FvEKOtmXkRvBTrqy4ZMlZ1SIOnJK6nNQ"
+        />
       </Head>
       <body>
         <Main />
