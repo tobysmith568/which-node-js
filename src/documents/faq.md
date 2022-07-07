@@ -13,7 +13,7 @@ This website gets that file when you load the page, so it's always up to date.
 
 On the [https://nodejs.org/about/releases/](https://nodejs.org/about/releases/) page, they explain that library authors _should_ use "Current" versions of Node.js to ensure that their library can support them. The page continues to say that "General use" and "Production apps" _should_ use LTS versions.
 
-When this website suggests that you should use specific version, it's purely based on those premises. This website makes no original suggestions about what version best.
+When this website suggests that you should use specific version, it's purely based on those premises. This website makes no original suggestions about what version is best.
 
 ## Do you have an API I can use to get the current versions for use in my CI/CD pipelines?
 
