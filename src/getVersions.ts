@@ -42,8 +42,8 @@ export const getVersions = async () => {
 
   const versions: NodeJsVersion[] = [];
 
-  for (var version in dataObject) {
-    if (!dataObject.hasOwnProperty(version)) {
+  for (const version in dataObject) {
+    if (!Object.prototype.hasOwnProperty.call(dataObject, version)) {
       continue;
     }
 
