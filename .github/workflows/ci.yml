@@ -6,7 +6,6 @@ on:
   pull_request:
     branches:
       - main
-      - renovate/*
   workflow_call:
 
 jobs:
@@ -90,3 +89,58 @@ jobs:
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
           directory: coverage
+
+  e2e:
+    needs:
+      - build
+
+    strategy:
+      fail-fast: false
+      matrix:
+        browser:
+          - name: Chrome
+            value: chrome
+          - name: Firefox
+            value: firefox
+
+    name: E2E test (${{ matrix.browser.name }})
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: npm
+
+      - name: Download Build
+        uses: actions/download-artifact@v3
+        with:
+          name: Build
+          path: ./out
+
+      - name: Run E2E tests
+        uses: cypress-io/github-action@v4
+        with:
+          start: npx http-server ./out -p 3000
+          browser: ${{ matrix.browser.value }}
+          wait-on: http://localhost:3000
+
+      - name: Upload E2E screenshots
+        if: always()
+        uses: actions/upload-artifact@v3
+        with:
+          name: E2E Screenshots
+          path: e2e/screenshots/
+          if-no-files-found: ignore
+
+      - name: Upload E2E videos
+        if: always()
+        uses: actions/upload-artifact@v3
+        with:
+          name: E2E Videos
+          path: e2e/videos/
+          if-no-files-found: ignore
