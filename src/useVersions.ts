@@ -47,6 +47,26 @@ const useVersions = (): Versions | null => {
         deadVersions.unshift(version);
       }
 
+      if (currentVersions.length === 0) {
+        const mostRecentMaintenance = maintenanceVersions.at(-1);
+
+        if (!mostRecentMaintenance) {
+          throw "No current or maintenance versions";
+        }
+
+        currentVersions.push(mostRecentMaintenance);
+      }
+
+      if (activeVersions.length === 0) {
+        const mostRecentCurrent = currentVersions.at(-1);
+
+        if (!mostRecentCurrent) {
+          throw "No active, current, or maintenance versions";
+        }
+
+        activeVersions.push(mostRecentCurrent);
+      }
+
       setVersions({ currentVersions, activeVersions, maintenanceVersions, deadVersions });
       setHasFetched(true);
     });
