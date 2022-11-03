@@ -48,7 +48,7 @@
     "cspell": "^6.1.2",
     "cypress": "^10.10.0",
     "eslint": "8.26.0",
-    "eslint-config-next": "13.0.0",
+    "eslint-config-next": "13.0.1",
     "eslint-config-prettier": "^8.5.0",
     "generate-license-file": "^2.0.0",
     "http-server": "^14.1.1",
