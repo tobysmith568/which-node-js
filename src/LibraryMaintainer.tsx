@@ -1,6 +1,6 @@
 import { FC } from "react";
 import NodeVersions from "./NodeVersions";
-import useVersions from "./useVersions";
+import useVersions from "./data/useVersions";
 
 const LibraryMaintainer: FC = () => {
   const versions = useVersions();
@@ -9,7 +9,8 @@ const LibraryMaintainer: FC = () => {
     return null;
   }
 
-  const { currentVersions, activeVersions, maintenanceVersions } = versions;
+  const shouldUse = versions.find(v => v.shouldBeUsedForLibraries());
+  const shouldRunTestsAgainst = versions.filter(v => v.shouldBeUsedForLibraryTests());
 
   return (
     <>
@@ -17,15 +18,11 @@ const LibraryMaintainer: FC = () => {
 
       <h4>Then you should use</h4>
 
-      <NodeVersions versions={[currentVersions[0]]} until={"lts"} />
+      <NodeVersions versions={shouldUse === undefined ? [] : [shouldUse]} until={"lts"} />
 
       <h4>But also run your tests against</h4>
 
-      <NodeVersions
-        versions={[...activeVersions, ...maintenanceVersions]}
-        until={"end"}
-        separatorText="and"
-      />
+      <NodeVersions versions={shouldRunTestsAgainst} until={"end"} separatorText="and" />
     </>
   );
 };

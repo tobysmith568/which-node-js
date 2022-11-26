@@ -1,13 +1,22 @@
 import { render, screen } from "@testing-library/react";
-import { NodeJsVersion } from "../src/getVersions";
+import { NodeJsVersion } from "../src/data/NodeJsVersion";
 import NodeVersions from "../src/NodeVersions";
 
 describe("NodeVersions", () => {
+  it("should render 'unknown' if no versions are passed in", () => {
+    const versions: NodeJsVersion[] = [];
+
+    render(<NodeVersions versions={versions} until="end" />);
+
+    const unknown = screen.getByText(/unknown/);
+    expect(unknown).toBeInTheDocument();
+  });
+
   it("should render each version", () => {
     const versions: NodeJsVersion[] = [
-      { version: "version 1" },
-      { version: "version 2" },
-      { version: "version 3" }
+      { version: "version 1" } as NodeJsVersion,
+      { version: "version 2" } as NodeJsVersion,
+      { version: "version 3" } as NodeJsVersion
     ];
 
     render(<NodeVersions versions={versions} until="end" />);
@@ -25,35 +34,38 @@ describe("NodeVersions", () => {
   it("should render the separator text once", async () => {
     const separatorText = "separatorText";
     const versions: NodeJsVersion[] = [
-      { version: "version 1" },
-      { version: "version 2" },
-      { version: "version 3" }
+      { version: "version 1" } as NodeJsVersion,
+      { version: "version 2" } as NodeJsVersion,
+      { version: "version 3" } as NodeJsVersion
     ];
 
     render(<NodeVersions versions={versions} until="end" separatorText={separatorText} />);
 
     const separatorTexts = await screen.findAllByText(separatorText);
 
-    expect(separatorTexts.length).toBe(1);
+    expect(separatorTexts).toHaveLength(1);
   });
 
   it("should render the separator text before the final version", () => {
     const separatorText = "separatorText";
 
     const versions: NodeJsVersion[] = [
-      { version: "version 1" },
-      { version: "version 2" },
-      { version: "version 3" }
+      { version: "version 1" } as NodeJsVersion,
+      { version: "version 2" } as NodeJsVersion,
+      { version: "version 3" } as NodeJsVersion
     ];
 
     render(<NodeVersions versions={versions} until="end" separatorText={separatorText} />);
 
     const renderedSeparatorText = screen.getByText(separatorText);
 
+    // Needed because this test tests the positions of HTML nodes relative to each other
+    /* eslint-disable testing-library/no-node-access */
     const previousSibling = renderedSeparatorText.previousElementSibling;
-    expect(previousSibling?.textContent).toBe("version 2");
+    expect(previousSibling?.textContent).toContain("version 2");
 
     const nextSibling = renderedSeparatorText.nextElementSibling;
-    expect(nextSibling?.textContent).toBe("version 3");
+    expect(nextSibling?.textContent).toContain("version 3");
+    /* eslint-enable testing-library/no-node-access */
   });
 });

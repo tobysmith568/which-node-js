@@ -63,6 +63,7 @@ jobs:
         with:
           name: Build
           path: ./out
+          retention-days: 1
 
   test:
     name: Test
@@ -157,6 +158,7 @@ jobs:
           name: E2E Screenshots
           path: e2e/screenshots/
           if-no-files-found: ignore
+          retention-days: 1
 
       - name: Upload E2E videos
         if: always()
@@ -165,3 +167,4 @@ jobs:
           name: E2E Videos
           path: e2e/videos/
           if-no-files-found: ignore
+          retention-days: 1
