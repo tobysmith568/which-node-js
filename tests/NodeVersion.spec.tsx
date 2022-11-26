@@ -3,7 +3,7 @@ import NodeVersion from "../src/NodeVersion";
 
 const fakeNow = new Date(2022, 7, 26, 1, 2, 3);
 
-const oneSecondInMs = 1000;
+const oneDayInMs = 1000 * 60 * 60 * 24;
 
 describe("NodeVersion", () => {
   beforeAll(() => {
@@ -33,17 +33,17 @@ describe("NodeVersion", () => {
     expect(container.textContent).toContain(`${version} (${codename})`);
   });
 
-  it("should contain no extra text if the until is undefined", () => {
+  it("should contain 'until TBC' if the until is undefined", () => {
     const version = "the given version";
 
     const { container } = render(<NodeVersion version={version} />);
 
-    expect(container.textContent).toBe(version);
+    expect(container.textContent).toContain("until TBC");
   });
 
   it("should contain the until if it is given and is in the future", () => {
     const version = "the given version";
-    const until = new Date(+fakeNow + oneSecondInMs);
+    const until = new Date(+fakeNow + oneDayInMs);
     const untilToString = until.toLocaleDateString();
 
     const { container } = render(<NodeVersion version={version} until={until} />);
@@ -62,7 +62,7 @@ describe("NodeVersion", () => {
 
   it("should contain ' ever' if the until is given and is in the past", () => {
     const version = "the given version";
-    const until = new Date(+fakeNow - oneSecondInMs);
+    const until = new Date(+fakeNow - oneDayInMs);
 
     const { container } = render(<NodeVersion version={version} until={until} />);
 

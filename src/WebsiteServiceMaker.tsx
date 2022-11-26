@@ -1,6 +1,6 @@
 import { FC } from "react";
 import NodeVersions from "./NodeVersions";
-import useVersions from "./useVersions";
+import useVersions from "./data/useVersions";
 
 const WebsiteServiceMaker: FC = () => {
   const versions = useVersions();
@@ -9,7 +9,8 @@ const WebsiteServiceMaker: FC = () => {
     return null;
   }
 
-  const { activeVersions, maintenanceVersions } = versions;
+  const shouldUse = versions.find(v => v.shouldBeUsedForWebsites());
+  const canBeUsed = versions.filter(v => v.canBeUsedForWebsites());
 
   return (
     <>
@@ -17,15 +18,11 @@ const WebsiteServiceMaker: FC = () => {
 
       <h4>Then you should use</h4>
 
-      <NodeVersions versions={[activeVersions[0]]} until={"maintenance"} />
+      <NodeVersions versions={shouldUse === undefined ? [] : [shouldUse]} until={"maintenance"} />
 
       <h4>But it&apos;s OK if you use</h4>
 
-      <NodeVersions
-        versions={[...maintenanceVersions, ...activeVersions]}
-        until={"end"}
-        separatorText="or"
-      />
+      <NodeVersions versions={canBeUsed} until={"end"} separatorText="or" />
     </>
   );
 };

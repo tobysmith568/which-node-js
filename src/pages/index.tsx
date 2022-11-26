@@ -4,7 +4,7 @@ import LibraryMaintainer from "../LibraryMaintainer";
 import Loading from "../Loading";
 import NoOne from "../NoOne";
 import Seo from "../Seo";
-import useVersions from "../useVersions";
+import useVersions from "../data/useVersions";
 import WebsiteServiceMaker from "../WebsiteServiceMaker";
 
 const Home: NextPage = () => {

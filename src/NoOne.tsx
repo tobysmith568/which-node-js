@@ -1,6 +1,6 @@
 import { FC } from "react";
 import NodeVersions from "./NodeVersions";
-import useVersions from "./useVersions";
+import useVersions from "./data/useVersions";
 
 const NoOne: FC = () => {
   const versions = useVersions();
@@ -9,13 +9,13 @@ const NoOne: FC = () => {
     return null;
   }
 
-  const { deadVersions } = versions;
+  const shouldNotBeUsed = versions.filter(v => v.isOutOfSupport());
 
   return (
     <>
       <h3>No one should use</h3>
 
-      <NodeVersions versions={deadVersions} until={"start"} />
+      <NodeVersions versions={shouldNotBeUsed} until={"start"} />
     </>
   );
 };

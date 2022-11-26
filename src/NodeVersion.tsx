@@ -1,6 +1,6 @@
 import { FC, useMemo } from "react";
 import Date from "./Date";
-import { isInThePast } from "./dateUtils";
+import { isInThePast } from "./data/dateUtils";
 
 interface Props {
   version: string;
@@ -11,7 +11,7 @@ interface Props {
 const NodeVersion: FC<Props> = ({ version, codename, until }) => {
   const untilText = useMemo(() => {
     if (!until) {
-      return null;
+      return <span>until TBC</span>;
     }
 
     if (isInThePast(until)) {
