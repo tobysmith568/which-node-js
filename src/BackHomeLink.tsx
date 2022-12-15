@@ -3,7 +3,7 @@ import Link from "next/link";
 import { FC } from "react";
 
 const BackHomeLink: FC = () => (
-  <Link href="/" passHref>
+  <Link href="/" passHref legacyBehavior>
     <Anchor>
       <ContentWrapper>
         <BackArrow />
