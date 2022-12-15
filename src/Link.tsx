@@ -17,7 +17,7 @@ const Link: FC<PropsWithChildren<Props>> = ({ children, href, newTab, color, hov
   const rel = useMemo(() => (href.startsWith("http") ? "noopener noreferrer" : undefined), [href]);
 
   return (
-    <NextLink href={href} passHref>
+    <NextLink href={href} passHref legacyBehavior>
       <MenuAnchor target={target} rel={rel} color={color} hoverColor={hoverColor}>
         {children}
       </MenuAnchor>
