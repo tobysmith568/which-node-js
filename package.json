@@ -27,7 +27,7 @@
     "url": "https://github.com/tobysmith568/what-node-js/issues"
   },
   "dependencies": {
-    "jotai": "^1.7.2",
+    "jotai": "^2.0.0",
     "next": "13.1.6",
     "next-seo": "^5.4.0",
     "react": "18.2.0",
