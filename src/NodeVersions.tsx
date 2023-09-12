@@ -18,7 +18,9 @@ const NodeVersions: FC<Props> = ({ versions, until, separatorText }) => {
     <>
       {versions.map((v, i) => (
         <Fragment key={v.version}>
-          <Separator>{i === versions.length - 1 && separatorText}</Separator>
+          {versions.length > 1 && (
+            <Separator>{i === versions.length - 1 && separatorText}</Separator>
+          )}
           <NodeVersion version={v.version} codename={v.codename} until={v[until]} />
         </Fragment>
       ))}
