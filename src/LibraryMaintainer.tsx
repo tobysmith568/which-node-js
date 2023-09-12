@@ -20,9 +20,13 @@ const LibraryMaintainer: FC = () => {
 
       <NodeVersions versions={shouldUse === undefined ? [] : [shouldUse]} until={"lts"} />
 
-      <h4>But also run your tests against</h4>
+      {shouldRunTestsAgainst.length > 0 && (
+        <>
+          <h4>But also run your tests against</h4>
 
-      <NodeVersions versions={shouldRunTestsAgainst} until={"end"} separatorText="and" />
+          <NodeVersions versions={shouldRunTestsAgainst} until={"end"} separatorText="and" />
+        </>
+      )}
     </>
   );
 };
