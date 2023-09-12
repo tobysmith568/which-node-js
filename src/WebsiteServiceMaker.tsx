@@ -20,9 +20,13 @@ const WebsiteServiceMaker: FC = () => {
 
       <NodeVersions versions={shouldUse === undefined ? [] : [shouldUse]} until={"maintenance"} />
 
-      <h4>But it&apos;s OK if you use</h4>
+      {canBeUsed.length > 0 && (
+        <>
+          <h4>But it&apos;s OK if you use</h4>
 
-      <NodeVersions versions={canBeUsed} until={"end"} separatorText="or" />
+          <NodeVersions versions={canBeUsed} until={"end"} separatorText="or" />
+        </>
+      )}
     </>
   );
 };
