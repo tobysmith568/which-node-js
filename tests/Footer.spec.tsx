@@ -23,7 +23,7 @@ describe("Footer", () => {
 
     const gitHubLink = screen.getByRole("link", { name: /GitHub/ });
 
-    expect(gitHubLink).toHaveAttribute("href", "https://github.com/tobysmith568/what-node-js");
+    expect(gitHubLink).toHaveAttribute("href", "https://github.com/tobysmith568/which-node-js");
   });
 
   it("should contain a link to the GitHub repo that opens in a new tab", () => {

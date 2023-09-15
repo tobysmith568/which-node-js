@@ -18,7 +18,7 @@ const Privacy: FC<Props> = ({ privacyMarkdown }) => (
   <>
     <Seo
       title="Privacy Policy"
-      description="Privacy Policy for What Version of Node.js?"
+      description="Privacy Policy for Which Version of Node.js?"
       path="/privacy"
       noIndex
     />

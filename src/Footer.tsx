@@ -6,7 +6,7 @@ import Link from "./Link";
 const menuItems: MenuItem[] = [
   { name: "Home", href: "/" },
   { name: "FAQ", href: "/faq" },
-  { name: "GitHub", href: "https://github.com/tobysmith568/what-node-js", newTab: true },
+  { name: "GitHub", href: "https://github.com/tobysmith568/which-node-js", newTab: true },
   { name: "Terms", href: "/terms" },
   { name: "Privacy", href: "/privacy" },
   { name: "Third-Party Licenses", href: "/third-party" }

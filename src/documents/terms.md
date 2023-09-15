@@ -17,7 +17,7 @@ For the purposes of these Terms and Conditions:
 - **Affiliate** means an entity that controls, is controlled by or is under common control with a party, where "control" means ownership of 50% or more of the shares, equity interest or other securities entitled to vote for election of directors or other managing authority.
 
 - **Country** refers to: United Kingdom
-- **Company** (referred to as either "the Company", "We", "Us" or "Our" in this Agreement) refers to What version of Node?.
+- **Company** (referred to as either "the Company", "We", "Us" or "Our" in this Agreement) refers to Which Version of Node.js?.
 
 - **Device** means any device that can access the Service such as a computer, a cellphone or a digital tablet.
 
@@ -25,7 +25,7 @@ For the purposes of these Terms and Conditions:
 
 - **Terms and Conditions** (also referred as "Terms") mean these Terms and Conditions that form the entire agreement between You and the Company regarding the use of the Service. This Terms and Conditions agreement has been created with the help of the [Free Terms and Conditions Generator](https://www.freeprivacypolicy.com/free-terms-and-conditions-generator/).
 - **Third-party Social Media Service** means any services or content (including data, information, products or services) provided by a third-party that may be displayed, included or made available by the Service.
-- **Website** refers to What version of Node?, accessible from [https://what-version-of-node.js.org](https://what-version-of-node.js.org)
+- **Website** refers to Which Version of Node?, accessible from [https://which-node.js.org](https://which-node.js.org)
 - **You** means the individual accessing or using the Service, or the company, or other legal entity on behalf of which such individual is accessing or using the Service, as applicable.
 
 # Acknowledgment

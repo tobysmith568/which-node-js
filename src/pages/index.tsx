@@ -13,8 +13,8 @@ const Home: NextPage = () => {
   return (
     <Index>
       <Seo
-        title="What version of Node.js?"
-        description="What Version of Node.js should you be using?"
+        title="Which Version of Node.js?"
+        description="Which version of Node.js should you be using?"
         path=""
       />
 

@@ -6,7 +6,7 @@ describe("Header", () => {
     render(<Header />);
 
     const title = screen.getByRole("heading", {
-      name: /What Version of Node\.js \?/
+      name: /Which Version of Node\.js \?/
     });
 
     expect(title).toBeInTheDocument();

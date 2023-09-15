@@ -1,7 +1,7 @@
 import { NextSeo } from "next-seo";
 import { FC } from "react";
 
-const canonicalDomain = "https://what-version-of-node.js.org";
+const canonicalDomain = "https://which-node.js.org";
 
 interface Props {
   title: string;

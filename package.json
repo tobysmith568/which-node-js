@@ -1,6 +1,6 @@
 {
   "private": true,
-  "name": "what-node-js",
+  "name": "which-node-js",
   "version": "0.0.0",
   "author": {
     "name": "Toby Smith",
@@ -8,12 +8,12 @@
     "url": "https://tobysmith.uk"
   },
   "license": "UNLICENSED",
-  "description": "What version of Node.JS should you be using?",
+  "description": "Which version of Node.js should you be using?",
   "prettier": "@tobysmith568/prettier-config",
-  "homepage": "https://github.com/tobysmith568/what-node-js#readme",
+  "homepage": "https://github.com/tobysmith568/which-node-js#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/tobysmith568/what-node-js.git"
+    "url": "git+https://github.com/tobysmith568/which-node-js.git"
   },
   "scripts": {
     "dev": "next dev",
@@ -24,7 +24,7 @@
     "cypress": "cypress open"
   },
   "bugs": {
-    "url": "https://github.com/tobysmith568/what-node-js/issues"
+    "url": "https://github.com/tobysmith568/which-node-js/issues"
   },
   "dependencies": {
     "jotai": "^2.0.0",
