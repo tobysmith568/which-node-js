@@ -5,7 +5,7 @@ const Header: FC = () => {
   return (
     <Background>
       <Title>
-        <span>What Version of</span>
+        <span>Which Version of</span>
         <NodeJsLogoWrapper>
           <NodeJsLogo>
             <img src="/node-js-logo.svg" alt="Node.js" width={120} height={72} />
@@ -14,7 +14,7 @@ const Header: FC = () => {
         </NodeJsLogoWrapper>
       </Title>
       <SubTitle>
-        An <i>unofficial</i> guide to what Node.js versions you should be using.
+        An <i>unofficial</i> guide to which Node.js versions you should be using.
       </SubTitle>
     </Background>
   );

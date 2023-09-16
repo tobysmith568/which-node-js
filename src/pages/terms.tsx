@@ -18,7 +18,7 @@ const Terms: FC<Props> = ({ termsMarkdown }) => (
   <>
     <Seo
       title="Terms & Conditions"
-      description="Terms & Conditions for What Version of Node.js?"
+      description="Terms & Conditions for Which Version of Node.js?"
       path="/terms"
       noIndex
     />

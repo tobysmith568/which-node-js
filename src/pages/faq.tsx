@@ -18,7 +18,7 @@ const Faq: FC<Props> = ({ faqMarkdown }) => (
   <>
     <Seo
       title="FAQ"
-      description="Frequently Asked Questions about What Version of Node.js?"
+      description="Frequently Asked Questions about Which Version of Node.js?"
       path="/faq"
     />
     <MarkdownPage markdown={faqMarkdown} />

@@ -24,7 +24,7 @@ const LicensesPage: FC<Props> = ({ licenses }) => {
     <>
       <Seo
         title="Third-Party Libraries"
-        description="Third-Party Libraries used by What Version of Node.js?"
+        description="Third-Party Libraries used by Which Version of Node.js?"
         path="/third-party"
         noIndex
       />

@@ -56,7 +56,7 @@ describe("Seo", () => {
     renderInHead(<Seo title="" description="" path={path} />);
 
     expect(document.head.outerHTML).toContain(
-      `<link rel="canonical" href="https://what-version-of-node.js.org${path}">`
+      `<link rel="canonical" href="https://which-node.js.org${path}">`
     );
   });
 
