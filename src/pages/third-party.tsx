@@ -1,6 +1,5 @@
 import styled from "@emotion/styled";
-import { getProjectLicenses } from "generate-license-file";
-import { ILicense } from "generate-license-file/dist/models/license";
+import { ILicense, getProjectLicenses } from "generate-license-file";
 import { GetStaticProps } from "next";
 import { FC, Fragment } from "react";
 import BackHomeLink from "../BackHomeLink";
