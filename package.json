@@ -44,7 +44,7 @@
     "@tobysmith568/eslint-config": "^1.0.4",
     "@tobysmith568/prettier-config": "^2.0.0",
     "@types/node": "18.18.6",
-    "@types/react": "18.2.29",
+    "@types/react": "18.2.31",
     "@types/react-dom": "18.2.14",
     "@typescript-eslint/eslint-plugin": "^6.7.0",
     "@typescript-eslint/parser": "^6.7.0",
