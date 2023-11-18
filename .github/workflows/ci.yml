@@ -55,15 +55,13 @@ jobs:
       - name: Build
         run: npm run build
 
-      - name: Export
-        run: npm run export
-
       - name: Upload Build
         uses: actions/upload-artifact@v3
         with:
           name: Build
           path: ./out
           retention-days: 1
+          if-no-files-found: error
 
   test:
     name: Test
