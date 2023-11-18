@@ -4,7 +4,7 @@
   "ignorePaths": [".next", "coverage", "node_modules", "out", "public"],
   "dictionaryDefinitions": [],
   "dictionaries": ["en-gb"],
-  "words": ["timebombs"],
+  "words": ["timebombs", "rehype"],
   "ignoreWords": ["tobysmith", "data-testid"],
   "import": [],
   "ignoreRegExpList": []
