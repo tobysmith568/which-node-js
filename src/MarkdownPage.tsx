@@ -2,15 +2,26 @@ import styled from "@emotion/styled";
 import { FC } from "react";
 import ReactMarkdown from "react-markdown";
 import BackHomeLink from "./BackHomeLink";
+import rehypeExternalLinks, { Options } from "rehype-external-links";
 
 interface Props {
   markdown: string;
 }
 
+const rehypeExternalLinksOptions: Options = {
+  target: a => {
+    const href = a.properties["href"] as string;
+    const url = new URL(href);
+    return url.host === "which-node.js.org" ? null : "_blank";
+  }
+};
+
 const MarkdownPage: FC<Props> = ({ markdown }) => (
   <PageWrapper>
     <BackHomeLink />
-    <ReactMarkdown linkTarget="_blank">{markdown}</ReactMarkdown>
+    <ReactMarkdown rehypePlugins={[[rehypeExternalLinks, rehypeExternalLinksOptions]]}>
+      {markdown}
+    </ReactMarkdown>
   </PageWrapper>
 );
 export default MarkdownPage;
