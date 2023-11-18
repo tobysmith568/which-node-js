@@ -32,9 +32,6 @@ jobs:
       - name: Run Prettier
         run: npx prettier --check .
 
-      - name: Run CSpell
-        run: npx cspell **/*.*
-
   build:
     name: Build
 
