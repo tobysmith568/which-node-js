@@ -53,7 +53,7 @@ jobs:
         run: npm run build
 
       - name: Upload Build
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: Build
           path: ./out
@@ -133,7 +133,7 @@ jobs:
           cache: npm
 
       - name: Download Build
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: Build
           path: ./out
@@ -147,7 +147,7 @@ jobs:
 
       - name: Upload E2E screenshots
         if: always()
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: E2E Screenshots
           path: e2e/screenshots/
@@ -156,7 +156,7 @@ jobs:
 
       - name: Upload E2E videos
         if: always()
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: E2E Videos
           path: e2e/videos/
