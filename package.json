@@ -43,7 +43,7 @@
     "@testing-library/user-event": "^14.2.1",
     "@tobysmith568/eslint-config": "^1.0.4",
     "@tobysmith568/prettier-config": "^2.0.0",
-    "@types/node": "18.19.18",
+    "@types/node": "18.19.19",
     "@types/react": "18.2.60",
     "@types/react-dom": "18.2.19",
     "@typescript-eslint/eslint-plugin": "^6.7.0",
