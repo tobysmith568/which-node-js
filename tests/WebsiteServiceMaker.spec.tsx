@@ -1,7 +1,7 @@
 import { render as rtlRender, screen } from "@testing-library/react";
+import WebsiteServiceMaker from "../src/WebsiteServiceMaker";
 import { NodeJsVersion } from "../src/data/NodeJsVersion";
 import useVersions from "../src/data/useVersions";
-import WebsiteServiceMaker from "../src/WebsiteServiceMaker";
 
 jest.mock("../src/data/useVersions");
 

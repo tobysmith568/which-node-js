@@ -1,8 +1,8 @@
 import styled from "@emotion/styled";
 import { FC } from "react";
 import ReactMarkdown from "react-markdown";
-import BackHomeLink from "./BackHomeLink";
 import rehypeExternalLinks, { Options } from "rehype-external-links";
+import BackHomeLink from "./BackHomeLink";
 
 interface Props {
   markdown: string;
