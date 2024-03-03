@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
 import { FC, Fragment } from "react";
-import { NodeJsVersion, PhaseName } from "./data/NodeJsVersion";
 import NodeVersion from "./NodeVersion";
+import { NodeJsVersion, PhaseName } from "./data/NodeJsVersion";
 
 interface Props {
   versions: NodeJsVersion[];

@@ -4,8 +4,8 @@ import LibraryMaintainer from "../LibraryMaintainer";
 import Loading from "../Loading";
 import NoOne from "../NoOne";
 import Seo from "../Seo";
-import useVersions from "../data/useVersions";
 import WebsiteServiceMaker from "../WebsiteServiceMaker";
+import useVersions from "../data/useVersions";
 
 const Home: NextPage = () => {
   const versions = useVersions();

@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
-import { NodeJsVersion } from "../src/data/NodeJsVersion";
 import NodeVersions from "../src/NodeVersions";
+import { NodeJsVersion } from "../src/data/NodeJsVersion";
 
 describe("NodeVersions", () => {
   it("should render 'unknown' if no versions are passed in", () => {

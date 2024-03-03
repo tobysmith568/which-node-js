@@ -1,7 +1,7 @@
 import { render as rtlRender, screen } from "@testing-library/react";
+import LibraryMaintainer from "../src/LibraryMaintainer";
 import { NodeJsVersion } from "../src/data/NodeJsVersion";
 import useVersions from "../src/data/useVersions";
-import LibraryMaintainer from "../src/LibraryMaintainer";
 
 jest.mock("../src/data/useVersions");
 

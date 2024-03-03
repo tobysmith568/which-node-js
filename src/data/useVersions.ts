@@ -1,7 +1,7 @@
 import { atom, useAtom } from "jotai";
 import { useEffect } from "react";
-import { getVersions } from "./getVersions";
 import { NodeJsVersion } from "./NodeJsVersion";
+import { getVersions } from "./getVersions";
 
 const hasFetchedAtom = atom<boolean>(false);
 const versionsAtom = atom<NodeJsVersion[] | null>(null);
