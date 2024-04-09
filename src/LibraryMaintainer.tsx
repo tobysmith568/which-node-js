@@ -9,8 +9,8 @@ const LibraryMaintainer: FC = () => {
     return null;
   }
 
-  const shouldUse = versions.find(v => v.shouldBeUsedForLibraries());
   const shouldRunTestsAgainst = versions.filter(v => v.shouldBeUsedForLibraryTests());
+  const shouldUse = versions.find(v => v.shouldBeUsedForLibraries()) ?? shouldRunTestsAgainst[0];
 
   return (
     <>

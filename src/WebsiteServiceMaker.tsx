@@ -9,8 +9,8 @@ const WebsiteServiceMaker: FC = () => {
     return null;
   }
 
-  const shouldUse = versions.find(v => v.shouldBeUsedForWebsites());
   const canBeUsed = versions.filter(v => v.canBeUsedForWebsites());
+  const shouldUse = versions.find(v => v.shouldBeUsedForWebsites()) ?? canBeUsed[0];
 
   return (
     <>
