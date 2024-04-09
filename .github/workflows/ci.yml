@@ -60,6 +60,11 @@ jobs:
           retention-days: 1
           if-no-files-found: error
 
+      - name: Upload GitHub Pages Build
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./out
+
   test:
     name: Test
 
