@@ -15,7 +15,7 @@ const NodeVersion: FC<Props> = ({ version, codename, until }) => {
     }
 
     if (isInThePast(until)) {
-      return <>ever</>;
+      return null;
     }
 
     return (
