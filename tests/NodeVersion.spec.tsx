@@ -60,12 +60,12 @@ describe("NodeVersion", () => {
     expect(container.textContent).toContain(`until ${fakeNowToString}`);
   });
 
-  it("should contain ' ever' if the until is given and is in the past", () => {
+  it("should only contain the version if the until is given and is in the past", () => {
     const version = "the given version";
     const until = new Date(+fakeNow - oneDayInMs);
 
     const { container } = render(<NodeVersion version={version} until={until} />);
 
-    expect(container.textContent).toContain(" ever");
+    expect(container.textContent).toBe(version);
   });
 });
