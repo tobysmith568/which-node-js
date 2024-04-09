@@ -144,7 +144,7 @@ jobs:
           path: ./out
 
       - name: Run E2E tests
-        uses: cypress-io/github-action@v4
+        uses: cypress-io/github-action@v6
         with:
           start: npx http-server ./out -p 3000
           browser: ${{ matrix.browser.value }}
