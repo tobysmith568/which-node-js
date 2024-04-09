@@ -4,6 +4,10 @@ on:
     branches:
       - main
 
+permissions:
+  pages: write
+  id-token: write
+
 jobs:
   ci:
     name: Run CI
@@ -18,17 +22,11 @@ jobs:
     needs:
       - ci
 
-    steps:
-      - name: Download Build
-        uses: actions/download-artifact@v4
-        with:
-          name: Build
-          path: ./out
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
 
+    steps:
       - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./out
-          user_name: github-actions[bot]
-          user_email: 41898282+github-actions[bot]@users.noreply.github.com
+        id: deployment
+        uses: actions/deploy-pages@v4
