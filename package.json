@@ -39,7 +39,7 @@
     "@emotion/styled": "^11.9.3",
     "@license-cop/permissive": "^1.4.1",
     "@testing-library/jest-dom": "^6.0.0",
-    "@testing-library/react": "^14.0.0",
+    "@testing-library/react": "^15.0.0",
     "@testing-library/user-event": "^14.2.1",
     "@tobysmith568/eslint-config": "^1.1.2",
     "@tobysmith568/prettier-config": "^2.1.0",
