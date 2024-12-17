@@ -14,7 +14,13 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
   const licenses = await getProjectLicenses("./package.json");
 
   return {
-    props: { licenses: licenses.map(l => ({ content: l.content, dependencies: l.dependencies })) }
+    props: {
+      licenses: licenses.map(l => ({
+        content: l.content,
+        dependencies: l.dependencies,
+        notices: []
+      }))
+    }
   };
 };
 
