@@ -60,6 +60,6 @@
     "jest-environment-jsdom": "^29.0.0",
     "license-cop": "^1.7.1",
     "react-markdown": "^9.0.0",
-    "typescript": "5.7.2"
+    "typescript": "5.7.3"
   }
 }
