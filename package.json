@@ -52,7 +52,7 @@
     "cspell": "^8.0.0",
     "cypress": "^14.0.0",
     "eslint": "8.57.1",
-    "eslint-config-next": "14.2.23",
+    "eslint-config-next": "14.2.24",
     "eslint-config-prettier": "^9.0.0",
     "generate-license-file": "^3.6.0",
     "http-server": "^14.1.1",
