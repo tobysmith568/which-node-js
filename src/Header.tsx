@@ -8,6 +8,7 @@ const Header: FC = () => {
         <span>Which Version of</span>
         <NodeJsLogoWrapper>
           <NodeJsLogo>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
             <img src="/node-js-logo.svg" alt="Node.js" width={120} height={72} />
           </NodeJsLogo>
           ?
