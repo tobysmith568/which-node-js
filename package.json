@@ -44,7 +44,7 @@
     "@testing-library/user-event": "^14.2.1",
     "@tobysmith568/eslint-config": "^2.4.0",
     "@tobysmith568/prettier-config": "^2.2.1",
-    "@types/node": "22.15.0",
+    "@types/node": "22.15.2",
     "@types/react": "19.1.2",
     "@types/react-dom": "19.1.2",
     "cspell": "^8.0.0",
