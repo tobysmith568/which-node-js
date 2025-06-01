@@ -60,7 +60,8 @@
   "pnpm": {
     "onlyBuiltDependencies": [
       "cypress",
-      "sharp"
+      "sharp",
+      "unrs-resolver"
     ]
   }
 }
