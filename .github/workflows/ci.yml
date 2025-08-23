@@ -50,7 +50,7 @@ jobs:
           if-no-files-found: error
 
       - name: Upload GitHub Pages Build
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v4
         with:
           path: ./out
 
