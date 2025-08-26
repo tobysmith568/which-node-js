@@ -55,7 +55,7 @@
     "jest-environment-jsdom": "^30.0.5",
     "license-cop": "^1.8.1",
     "react-markdown": "^10.1.0",
-    "typescript": "5.8.3"
+    "typescript": "5.9.2"
   },
   "pnpm": {
     "onlyBuiltDependencies": [
