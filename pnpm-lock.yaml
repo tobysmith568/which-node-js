@@ -15,8 +15,8 @@ importers:
         specifier: 16.2.3
         version: 16.2.3(@babel/core@7.28.3)(babel-plugin-macros@3.1.0)(react-dom@19.2.5(react@19.2.5))(react@19.2.5)
       next-seo:
-        specifier: ^6.8.0
-        version: 6.8.0(next@16.2.3(@babel/core@7.28.3)(babel-plugin-macros@3.1.0)(react-dom@19.2.5(react@19.2.5))(react@19.2.5))(react-dom@19.2.5(react@19.2.5))(react@19.2.5)
+        specifier: ^7.0.0
+        version: 7.2.0(next@16.2.3(@babel/core@7.28.3)(babel-plugin-macros@3.1.0)(react-dom@19.2.5(react@19.2.5))(react@19.2.5))(react@19.2.5)
       react:
         specifier: 19.2.5
         version: 19.2.5
@@ -3911,12 +3911,11 @@ packages:
     resolution: {integrity: sha512-8Ofs/AUQh8MaEcrlq5xOX0CQ9ypTF5dl78mjlMNfOK08fzpgTHQRQPBxcPlEtIw0yRpws+Zo/3r+5WRby7u3Gg==}
     engines: {node: '>= 0.6'}
 
-  next-seo@6.8.0:
-    resolution: {integrity: sha512-zcxaV67PFXCSf8e6SXxbxPaOTgc8St/esxfsYXfQXMM24UESUVSXFm7f2A9HMkAwa0Gqn4s64HxYZAGfdF4Vhg==}
+  next-seo@7.2.0:
+    resolution: {integrity: sha512-ST7/YB8g0SXGuEKNucBz9wiP6nCYVZ4v8qJB7rAz9Vr1X98mw5orWL9COr8td/dzqtCYd4xaIg0YVCq5Yy3PQA==}
     peerDependencies:
-      next: ^8.1.1-canary.54 || >=9.0.0
-      react: '>=16.0.0'
-      react-dom: '>=16.0.0'
+      next: '>=13.4.0'
+      react: '>=18.2.0'
 
   next@16.2.3:
     resolution: {integrity: sha512-9V3zV4oZFza3PVev5/poB9g0dEafVcgNyQ8eTRop8GvxZjV2G15FC5ARuG1eFD42QgeYkzJBJzHghNP8Ad9xtA==}
@@ -9863,11 +9862,10 @@ snapshots:
 
   negotiator@1.0.0: {}
 
-  next-seo@6.8.0(next@16.2.3(@babel/core@7.28.3)(babel-plugin-macros@3.1.0)(react-dom@19.2.5(react@19.2.5))(react@19.2.5))(react-dom@19.2.5(react@19.2.5))(react@19.2.5):
+  next-seo@7.2.0(next@16.2.3(@babel/core@7.28.3)(babel-plugin-macros@3.1.0)(react-dom@19.2.5(react@19.2.5))(react@19.2.5))(react@19.2.5):
     dependencies:
       next: 16.2.3(@babel/core@7.28.3)(babel-plugin-macros@3.1.0)(react-dom@19.2.5(react@19.2.5))(react@19.2.5)
       react: 19.2.5
-      react-dom: 19.2.5(react@19.2.5)
 
   next@16.2.3(@babel/core@7.28.3)(babel-plugin-macros@3.1.0)(react-dom@19.2.5(react@19.2.5))(react@19.2.5):
     dependencies:
