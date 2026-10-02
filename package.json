@@ -53,7 +53,7 @@
     "http-server": "^14.1.1",
     "jest": "^30.0.5",
     "jest-environment-jsdom": "^30.0.5",
-    "license-cop": "^1.8.1",
+    "license-cop": "^2.0.0",
     "react-markdown": "^10.1.0",
     "typescript": "5.9.3"
   },
