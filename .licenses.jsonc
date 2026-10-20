@@ -1,0 +1,11 @@
+{
+  "extends": "@license-cop/permissive",
+  "packages": [
+    "caniuse-lite",
+    // sharp's prebuilt libvips (LGPL-3.0-or-later), pulled in as an optional dependency of next.
+    // Only used at build time: the site is a static export and only ./out is published, so the
+    // library is never distributed.
+    "@img/sharp-libvips-linux-x64",
+    "@img/sharp-libvips-linuxmusl-x64"
+  ]
+}
