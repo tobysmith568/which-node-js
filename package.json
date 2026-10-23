@@ -21,7 +21,7 @@
     "build": "next build",
     "test": "jest",
     "test:ci": "jest --ci --coverage",
-    "cypress": "cypress open"
+    "e2e": "playwright test"
   },
   "bugs": {
     "url": "https://github.com/tobysmith568/which-node-js/issues"
@@ -39,6 +39,7 @@
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.1",
     "@license-cop/permissive": "^2.2.1",
+    "@playwright/test": "^1.64.1",
     "@testing-library/jest-dom": "^7.0.0",
     "@testing-library/react": "^16.3.0",
     "@testing-library/user-event": "^14.6.1",
@@ -48,7 +49,6 @@
     "@types/react": "19.3.0",
     "@types/react-dom": "19.3.0",
     "cspell": "^10.0.0",
-    "cypress": "^16.0.0",
     "generate-license-file": "^4.1.0",
     "http-server": "^14.1.1",
     "jest": "^30.0.5",
@@ -58,7 +58,6 @@
     "typescript": "5.9.3"
   },
   "trustedDependencies": [
-    "cypress",
     "sharp",
     "unrs-resolver"
   ]

@@ -117,7 +117,7 @@ jobs:
       matrix:
         browser:
           - name: Chrome
-            value: chrome
+            value: chromium
           - name: Firefox
             value: firefox
 
@@ -135,8 +135,8 @@ jobs:
       - name: Install dependencies
         run: bun install --frozen-lockfile
 
-      - name: Install Cypress
-        run: bunx cypress install
+      - name: Install Playwright browser
+        run: bunx playwright install --with-deps ${{ matrix.browser.value }}
 
       - name: Download Build
         uses: actions/download-artifact@v8
@@ -145,27 +145,15 @@ jobs:
           path: ./out
 
       - name: Run E2E tests
-        uses: cypress-io/github-action@v7.4.6
-        with:
-          install: false
-          start: bunx http-server ./out -p 3000
-          browser: ${{ matrix.browser.value }}
-          wait-on: http://localhost:3000
+        run: bun run e2e --project=${{ matrix.browser.value }}
 
-      - name: Upload E2E screenshots
+      - name: Upload Playwright report
         if: always()
         uses: actions/upload-artifact@v7
         with:
-          name: E2E Screenshots
-          path: e2e/screenshots/
-          if-no-files-found: ignore
-          retention-days: 1
-
-      - name: Upload E2E videos
-        if: always()
-        uses: actions/upload-artifact@v7
-        with:
-          name: E2E Videos
-          path: e2e/videos/
+          name: Playwright Report (${{ matrix.browser.name }})
+          path: |
+            playwright-report/
+            test-results/
           if-no-files-found: ignore
           retention-days: 1
