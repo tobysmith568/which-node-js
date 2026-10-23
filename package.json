@@ -11,7 +11,7 @@
   "description": "Which version of Node.js should you be using?",
   "prettier": "@tobysmith568/prettier-config",
   "homepage": "https://github.com/tobysmith568/which-node-js#readme",
-  "packageManager": "pnpm@10.34.7+sha512.ba98abc585539933375b5971f4bc6d6c73a1b4b7edc4a879e7d102fe5423d1e02309d67c60a11f04955093a96e521ad9c3b138cdd654ca5be563f378b3ae48bd",
+  "packageManager": "bun@1.4.3",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/tobysmith568/which-node-js.git"
@@ -21,7 +21,7 @@
     "build": "next build",
     "test": "jest",
     "test:ci": "jest --ci --coverage",
-    "cypress": "cypress open"
+    "e2e": "playwright test"
   },
   "bugs": {
     "url": "https://github.com/tobysmith568/which-node-js/issues"
@@ -39,6 +39,7 @@
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.1",
     "@license-cop/permissive": "^2.2.1",
+    "@playwright/test": "^1.64.1",
     "@testing-library/jest-dom": "^7.0.0",
     "@testing-library/react": "^16.3.0",
     "@testing-library/user-event": "^14.6.1",
@@ -48,7 +49,6 @@
     "@types/react": "19.3.0",
     "@types/react-dom": "19.3.0",
     "cspell": "^10.0.0",
-    "cypress": "^16.0.0",
     "generate-license-file": "^4.1.0",
     "http-server": "^14.1.1",
     "jest": "^30.0.5",
@@ -57,11 +57,8 @@
     "react-markdown": "^10.1.0",
     "typescript": "5.9.3"
   },
-  "pnpm": {
-    "onlyBuiltDependencies": [
-      "cypress",
-      "sharp",
-      "unrs-resolver"
-    ]
-  }
+  "trustedDependencies": [
+    "sharp",
+    "unrs-resolver"
+  ]
 }

@@ -23,7 +23,7 @@
       "path": "./tsconfig.spec.json"
     },
     {
-      "path": "./tsconfig.cy.json"
+      "path": "./tsconfig.e2e.json"
     }
   ],
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
