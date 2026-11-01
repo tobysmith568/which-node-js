@@ -1,4 +1,7 @@
 ---
+// The rule can't see that `.title` is used by the dynamic `<Title>` tag
+/* eslint-disable astro/no-unused-css-selector */
+
 interface Props {
   /** Whether the site title is the page's `h1`. Pages which have their own `h1` use a paragraph instead. */
   titleIsH1: boolean;
