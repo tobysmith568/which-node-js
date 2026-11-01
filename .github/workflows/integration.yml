@@ -1,4 +1,6 @@
-name: CI
+name: Continuous Integration
+run-name: Continuous Integration for ${{ (github.event.pull_request.number && format('PR {0}', github.event.pull_request.number)) || github.ref_name }}
+
 on:
   push:
     branches:
@@ -6,62 +8,98 @@ on:
   pull_request:
     branches:
       - main
+      - "!renovate/*"
   workflow_call:
   workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
 
 defaults:
   run:
     shell: pwsh
 
 jobs:
-  lint:
-    name: Lint
+  codeql:
+    name: CodeQL
+    uses: ./.github/workflows/codeql.yml
+    permissions:
+      actions: read
+      contents: read
+      security-events: write
 
+  format:
+    name: Format
     runs-on: ubuntu-latest
+    timeout-minutes: 5
 
     steps:
       - name: Checkout
         uses: actions/checkout@v7
 
-      - name: Setup Bun
-        uses: oven-sh/setup-bun@v2
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v7
-        with:
-          node-version: 24
-
-      - name: Install dependencies
-        run: bun install --frozen-lockfile
-
-      - name: Run ESLint
-        run: bunx eslint ./src --max-warnings 0
+      - uses: ./.github/actions/setup
 
       - name: Run Prettier
-        run: bunx prettier --check .
+        run: bun run format:check
+
+  lint:
+    name: Lint
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - uses: ./.github/actions/setup
+
+      - name: Run ESLint
+        run: bun run lint
+
+  typecheck:
+    name: Typecheck
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - uses: ./.github/actions/setup
 
       - name: Check types
         run: bun run typecheck
 
-  build:
-    name: Build
-
+  licenses:
+    name: Licenses
     runs-on: ubuntu-latest
+    timeout-minutes: 5
 
     steps:
       - name: Checkout
         uses: actions/checkout@v7
 
-      - name: Setup Bun
-        uses: oven-sh/setup-bun@v2
+      - uses: ./.github/actions/setup
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v7
-        with:
-          node-version: 24
+      - name: Check licenses
+        run: bun run license-check
 
-      - name: Install dependencies
-        run: bun install --frozen-lockfile
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    needs:
+      - typecheck
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - uses: ./.github/actions/setup
 
       - name: Build
         run: bun run build
@@ -73,26 +111,20 @@ jobs:
           path: ./dist
           retention-days: 1
           if-no-files-found: error
-
-      - name: Upload GitHub Pages Build
-        uses: actions/upload-pages-artifact@v5
-        with:
-          path: ./dist
+          include-hidden-files: true
 
   test:
     name: Test
-
     runs-on: ubuntu-latest
+    timeout-minutes: 5
+    needs:
+      - typecheck
 
     steps:
       - name: Checkout
         uses: actions/checkout@v7
 
-      - name: Setup Bun
-        uses: oven-sh/setup-bun@v2
-
-      - name: Install dependencies
-        run: bun install --frozen-lockfile
+      - uses: ./.github/actions/setup
 
       - name: Run Unit Tests
         run: bun run test:ci
@@ -103,25 +135,10 @@ jobs:
           token: ${{ secrets.CODECOV_TOKEN }}
           directory: coverage
 
-  licence:
-    name: Check licences
-
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v7
-
-      - name: Setup Bun
-        uses: oven-sh/setup-bun@v2
-
-      - name: Install dependencies
-        run: bun install --frozen-lockfile
-
-      - name: Check Licenses
-        run: bunx license-cop
-
   e2e:
+    name: E2E test (${{ matrix.browser.name }})
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
     needs:
       - build
 
@@ -134,19 +151,11 @@ jobs:
           - name: Firefox
             value: firefox
 
-    name: E2E test (${{ matrix.browser.name }})
-
-    runs-on: ubuntu-24.04
-
     steps:
       - name: Checkout
         uses: actions/checkout@v7
 
-      - name: Setup Bun
-        uses: oven-sh/setup-bun@v2
-
-      - name: Install dependencies
-        run: bun install --frozen-lockfile
+      - uses: ./.github/actions/setup
 
       - name: Install Playwright browser
         run: bunx playwright install --with-deps ${{ matrix.browser.value }}

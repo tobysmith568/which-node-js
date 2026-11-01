@@ -17,15 +17,16 @@
     "type": "git",
     "url": "git+https://github.com/tobysmith568/which-node-js.git"
   },
-  "engines": {
-    "node": ">=22.23.4"
-  },
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
     "typecheck": "astro check",
+    "lint": "eslint ./src --max-warnings 0",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "license-check": "license-cop",
     "test": "bun test",
     "test:ci": "bun test --coverage --coverage-reporter=lcov",
     "e2e": "playwright test"
