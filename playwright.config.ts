@@ -29,7 +29,7 @@ export default defineConfig({
   ],
 
   webServer: {
-    command: "bunx http-server ./out -p 3000 -s",
+    command: "bunx http-server ./dist -p 3000 -s",
     url: "http://localhost:3000/",
     reuseExistingServer: !isCi
   }

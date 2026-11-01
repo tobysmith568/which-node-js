@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://which-node.js.org/sitemap-index.xml

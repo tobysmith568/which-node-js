@@ -1,0 +1,65 @@
+---
+import LibraryMaintainer from "../components/LibraryMaintainer.astro";
+import NoOne from "../components/NoOne.astro";
+import WebsiteServiceMaker from "../components/WebsiteServiceMaker.astro";
+import { getVersions } from "../data/getVersions";
+import Layout from "../layouts/Layout.astro";
+
+const versions = await getVersions();
+---
+
+<Layout
+  title="Which Version of Node.js?"
+  description="Which version of Node.js should you be using?">
+  <div class="index">
+    <h2>If you're a...</h2>
+
+    <div class="grid">
+      <div>
+        <LibraryMaintainer {versions} />
+      </div>
+      <div>
+        <WebsiteServiceMaker {versions} />
+      </div>
+    </div>
+
+    <div class="no-one">
+      <NoOne {versions} />
+    </div>
+  </div>
+</Layout>
+
+<style>
+  .index {
+    text-align: center;
+  }
+
+  h2 {
+    font-size: 2em;
+  }
+
+  .index :global(h3) {
+    font-size: 1.8em;
+  }
+
+  .index :global(h4) {
+    font-size: 1.3em;
+  }
+
+  .grid {
+    display: grid;
+    grid-auto-columns: 1fr;
+    grid-auto-flow: column;
+  }
+
+  @media only screen and (max-width: 700px) {
+    .grid {
+      grid-auto-flow: row;
+    }
+  }
+
+  .no-one {
+    margin-top: 4em;
+    margin-bottom: 2em;
+  }
+</style>

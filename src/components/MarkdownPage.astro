@@ -1,0 +1,16 @@
+---
+import DocumentPage from "./DocumentPage.astro";
+---
+
+<DocumentPage>
+  <div class="markdown">
+    <slot />
+  </div>
+</DocumentPage>
+
+<style>
+  .markdown :global(a) {
+    color: #000;
+    text-decoration: underline;
+  }
+</style>

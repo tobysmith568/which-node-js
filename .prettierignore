@@ -1,6 +1,6 @@
-.next
+.astro
 coverage
+dist
 node_modules
-out
-test-results
 playwright-report
+test-results

@@ -1,2 +1,6 @@
 [install]
 linker = "hoisted"
+
+[test]
+coverageSkipTestFiles = true
+coverageDir = "coverage"

@@ -1,6 +1,8 @@
+// Schedule dates are UTC calendar days, and the site is built in whichever timezone the build runs
+// in, so "today" is always the UTC day
 const previousMidnightTimestamp = () => {
   const date = new Date();
-  date.setHours(0, 0, 0, 0);
+  date.setUTCHours(0, 0, 0, 0);
   return date.getTime();
 };
 

@@ -26,6 +26,11 @@ jobs:
       - name: Setup Bun
         uses: oven-sh/setup-bun@v2
 
+      - name: Setup Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: 24
+
       - name: Install dependencies
         run: bun install --frozen-lockfile
 
@@ -34,6 +39,9 @@ jobs:
 
       - name: Run Prettier
         run: bunx prettier --check .
+
+      - name: Check types
+        run: bun run typecheck
 
   build:
     name: Build
@@ -47,6 +55,11 @@ jobs:
       - name: Setup Bun
         uses: oven-sh/setup-bun@v2
 
+      - name: Setup Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: 24
+
       - name: Install dependencies
         run: bun install --frozen-lockfile
 
@@ -57,14 +70,14 @@ jobs:
         uses: actions/upload-artifact@v7
         with:
           name: Build
-          path: ./out
+          path: ./dist
           retention-days: 1
           if-no-files-found: error
 
       - name: Upload GitHub Pages Build
         uses: actions/upload-pages-artifact@v5
         with:
-          path: ./out
+          path: ./dist
 
   test:
     name: Test
@@ -142,7 +155,7 @@ jobs:
         uses: actions/download-artifact@v8
         with:
           name: Build
-          path: ./out
+          path: ./dist
 
       - name: Run E2E tests
         run: bun run e2e --project=${{ matrix.browser.value }}

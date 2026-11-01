@@ -1,0 +1,15 @@
+---
+import MarkdownPage from "../components/MarkdownPage.astro";
+import { Content } from "../documents/terms.md";
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout
+  title="Terms & Conditions"
+  description="Terms & Conditions for Which Version of Node.js?"
+  noIndex
+  hasOwnHeading>
+  <MarkdownPage>
+    <Content />
+  </MarkdownPage>
+</Layout>

@@ -1,0 +1,51 @@
+---
+import Link from "./Link.astro";
+
+interface MenuItem {
+  name: string;
+  href: string;
+  newTab?: boolean | undefined;
+}
+
+interface Props {
+  label: string;
+  menuItems: MenuItem[];
+}
+
+const { label, menuItems } = Astro.props;
+---
+
+<nav aria-label={label}>
+  <ul>
+    {
+      menuItems.map(({ name, href, newTab }) => (
+        <li>
+          <Link {href} {newTab}>
+            {name}
+          </Link>
+        </li>
+      ))
+    }
+  </ul>
+</nav>
+
+<style>
+  nav {
+    margin-top: 0.8em;
+  }
+
+  ul {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  li + li::before {
+    content: "|";
+    margin-left: 0.7em;
+    margin-right: 0.7em;
+  }
+</style>

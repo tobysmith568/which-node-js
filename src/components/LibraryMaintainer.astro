@@ -1,0 +1,29 @@
+---
+import type { NodeJsVersion } from "../data/NodeJsVersion";
+import { getLibraryMaintainerVersions } from "../data/versionGroups";
+import NodeVersions from "./NodeVersions.astro";
+
+interface Props {
+  versions: NodeJsVersion[];
+}
+
+const { versions } = Astro.props;
+
+const { use, alsoTestAgainst } = getLibraryMaintainerVersions(versions);
+---
+
+<h3>Library Maintainer</h3>
+
+<h4>Then you should use</h4>
+
+<NodeVersions versions={use} until="lts" />
+
+{
+  alsoTestAgainst.length > 0 && (
+    <>
+      <h4>But also run your tests against</h4>
+
+      <NodeVersions versions={alsoTestAgainst} until="end" separatorText="and" />
+    </>
+  )
+}

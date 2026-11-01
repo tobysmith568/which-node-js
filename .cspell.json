@@ -1,11 +1,11 @@
 {
   "$schema": "https://raw.githubusercontent.com/streetsidesoftware/cspell/main/cspell.schema.json",
   "version": "0.2",
-  "ignorePaths": [".next", "coverage", "node_modules", "out", "public"],
+  "ignorePaths": [".astro", "_scratch", "coverage", "dist", "node_modules", "public"],
   "dictionaryDefinitions": [],
   "dictionaries": ["en-gb"],
-  "words": ["timebombs", "rehype"],
-  "ignoreWords": ["tobysmith", "data-testid"],
+  "words": ["bunx", "contentinfo", "satteri", "timebombs", "unrs"],
+  "ignoreWords": ["tobysmith"],
   "import": [],
   "ignoreRegExpList": []
 }

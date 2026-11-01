@@ -7,7 +7,7 @@ It is not related to, or endorsed by, [Node.js](https://nodejs.org/) or [the Ope
 
 The same place that the [https://nodejs.org/en/about/previous-releases](https://nodejs.org/en/about/previous-releases) page gets it's information. There is [a JSON file](https://github.com/nodejs/Release/blob/main/schedule.json) in [the official Node.js Release Working Group repository](https://github.com/nodejs/Release), in the Node.js organization, on GitHub.
 
-This website gets that file when you load the page, so it's always up to date.
+This website gets that file when it is built, and it is rebuilt every day, so the information is never more than a day old. If you leave this page open past midnight (UTC), refresh it to see any changes.
 
 ## Why "should" I use version X verses version Y?
 

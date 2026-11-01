@@ -1,0 +1,56 @@
+---
+import { getProjectLicenses } from "generate-license-file";
+import DocumentPage from "../components/DocumentPage.astro";
+import Link from "../components/Link.astro";
+import { getPackageUrl } from "../data/getPackageUrl";
+import Layout from "../layouts/Layout.astro";
+
+const licenses = await getProjectLicenses("./package.json");
+---
+
+<Layout
+  title="Third-Party Libraries"
+  description="Third-Party Libraries used by Which Version of Node.js?"
+  noIndex
+  hasOwnHeading>
+  <DocumentPage>
+    <h1>Third-Party Licenses</h1>
+    <h3>This page lists all of the third-party licenses used by this website</h3>
+    <h4>
+      This page was generated using the{" "}
+      <Link
+        href="https://www.npmjs.com/package/generate-license-file"
+        newTab
+        color="#000"
+        hoverColor="#000">generate-license-file npm package</Link
+      >.
+    </h4>
+    {
+      licenses.map(license => (
+        <>
+          <p>The following npm packages may be included in this website:</p>
+          <ul>
+            {license.dependencies.map(dependency => (
+              <li>
+                <Link href={getPackageUrl(dependency)} newTab color="#000" hoverColor="#000">
+                  {dependency}
+                </Link>
+              </li>
+            ))}
+          </ul>
+          <p>These packages contains the following license and notice below:</p>
+          <p class="license">{license.content}</p>
+          <br />
+          <hr />
+          <br />
+        </>
+      ))
+    }
+  </DocumentPage>
+</Layout>
+
+<style>
+  .license {
+    white-space: break-spaces;
+  }
+</style>

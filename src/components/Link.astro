@@ -1,0 +1,29 @@
+---
+interface Props {
+  href: string;
+  newTab?: boolean | undefined;
+  color?: string | undefined;
+  hoverColor?: string | undefined;
+}
+
+const { href, newTab, color = "#ccc", hoverColor = "#fff" } = Astro.props;
+
+const target = newTab ? "_blank" : undefined;
+const rel = href.startsWith("http") ? "noopener noreferrer" : undefined;
+---
+
+<a {href} {target} {rel} style={{ "--link-color": color, "--link-hover-color": hoverColor }}>
+  <slot />
+</a>
+
+<style>
+  a {
+    color: var(--link-color);
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+    color: var(--link-hover-color);
+  }
+</style>
