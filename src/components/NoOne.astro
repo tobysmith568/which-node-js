@@ -1,0 +1,17 @@
+---
+import type { NodeJsVersion } from "../data/NodeJsVersion";
+import { getOutOfSupportVersions } from "../data/versionGroups";
+import NodeVersions from "./NodeVersions.astro";
+
+interface Props {
+  versions: NodeJsVersion[];
+}
+
+const { versions } = Astro.props;
+
+const shouldNotBeUsed = getOutOfSupportVersions(versions);
+---
+
+<h3>No one should use</h3>
+
+<NodeVersions versions={shouldNotBeUsed} until="start" />

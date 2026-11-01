@@ -1,0 +1,29 @@
+---
+import type { NodeJsVersion } from "../data/NodeJsVersion";
+import { getWebsiteServiceMakerVersions } from "../data/versionGroups";
+import NodeVersions from "./NodeVersions.astro";
+
+interface Props {
+  versions: NodeJsVersion[];
+}
+
+const { versions } = Astro.props;
+
+const { use, alsoOk } = getWebsiteServiceMakerVersions(versions);
+---
+
+<h3>Website/Service Maker</h3>
+
+<h4>Then you should use</h4>
+
+<NodeVersions versions={use} until="maintenance" />
+
+{
+  alsoOk.length > 0 && (
+    <>
+      <h4>But it's OK if you use</h4>
+
+      <NodeVersions versions={alsoOk} until="end" separatorText="or" />
+    </>
+  )
+}

@@ -1,0 +1,34 @@
+---
+import type { NodeJsVersion, PhaseName } from "../data/NodeJsVersion";
+import NodeVersion from "./NodeVersion.astro";
+
+interface Props {
+  versions: NodeJsVersion[];
+  until: PhaseName;
+  separatorText?: string | undefined;
+}
+
+const { versions, until, separatorText } = Astro.props;
+
+const lastIndex = versions.length - 1;
+---
+
+{
+  versions.length === 0 ? (
+    <div>unknown</div>
+  ) : (
+    versions.map((v, i) => (
+      <>
+        {versions.length > 1 && <div class="separator">{i === lastIndex && separatorText}</div>}
+        <NodeVersion version={v.version} codename={v.codename} until={v[until]} />
+      </>
+    ))
+  )
+}
+
+<style>
+  .separator {
+    margin-top: 0.2em;
+    margin-bottom: 0.2em;
+  }
+</style>

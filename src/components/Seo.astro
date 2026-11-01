@@ -1,0 +1,23 @@
+---
+import { getCanonicalUrl } from "../data/getCanonicalUrl";
+
+interface Props {
+  title: string;
+  description: string;
+  noIndex?: boolean | undefined;
+}
+
+const { title, description, noIndex = false } = Astro.props;
+
+const canonical = getCanonicalUrl(Astro.url.pathname, Astro.site!);
+const robots = noIndex ? "noindex,follow" : "index,follow";
+---
+
+<title>{title}</title>
+<meta name="description" content={description} />
+<meta name="robots" content={robots} />
+<link rel="canonical" href={canonical} />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:url" content={canonical} />
+<meta property="og:type" content="website" />

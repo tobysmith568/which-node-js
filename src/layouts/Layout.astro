@@ -1,0 +1,72 @@
+---
+// cspell:ignore msapplication
+// cspell:ignore PlUj3aq0Ed5FvEKOtmXkRvBTrqy4ZMlZ1SIOnJK6nNQ
+import Footer from "../components/Footer.astro";
+import Header from "../components/Header.astro";
+import Seo from "../components/Seo.astro";
+import "../styles/global.css";
+
+interface Props {
+  title: string;
+  description: string;
+  noIndex?: boolean | undefined;
+  /** Whether the page has its own `h1`, in which case the site title in the header isn't one */
+  hasOwnHeading?: boolean | undefined;
+}
+
+const { title, description, noIndex, hasOwnHeading = false } = Astro.props;
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+
+    <Seo {title} {description} {noIndex} />
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#70a760" />
+    <meta name="apple-mobile-web-app-title" content="Which Version of Node.js?" />
+    <meta name="application-name" content="Which Version of Node.js?" />
+    <meta name="msapplication-TileColor" content="#cccccc" />
+    <meta name="theme-color" content="#cccccc" />
+
+    <meta name="google-site-verification" content="PlUj3aq0Ed5FvEKOtmXkRvBTrqy4ZMlZ1SIOnJK6nNQ" />
+  </head>
+  <body>
+    <div class="page">
+      <Header titleIsH1={!hasOwnHeading} />
+
+      <main>
+        <div class="content">
+          <slot />
+        </div>
+      </main>
+
+      <Footer />
+    </div>
+  </body>
+</html>
+
+<style>
+  .page {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+
+  main {
+    padding-left: 1em;
+    padding-right: 1em;
+    flex-grow: 1;
+  }
+
+  .content {
+    max-width: 1000px;
+    margin: auto;
+  }
+</style>

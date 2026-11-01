@@ -1,41 +1,26 @@
-import { z } from "zod";
-import { NodeJsVersion } from "./NodeJsVersion";
+import type { NodeJsVersion } from "./NodeJsVersion";
+import { parseVersions } from "./parseVersions";
 
-const dateSchema = z.preprocess(arg => {
-  if (arg === null) return null;
-  if (typeof arg == "string" || arg instanceof Date) return new Date(arg);
-}, z.date().optional());
+const scheduleUrl = "https://raw.githubusercontent.com/nodejs/Release/main/schedule.json";
 
-const versionNameValidator = z.string().min(1);
+// Every page needs the versions, but the schedule only needs fetching once per build
+let versionsPromise: Promise<NodeJsVersion[]> | undefined;
 
-const versionDataValidator = z.object({
-  start: dateSchema,
-  lts: dateSchema.optional(),
-  maintenance: dateSchema.optional(),
-  end: dateSchema,
-  codename: z.string().optional()
-});
+/** Gets the versions from the Node.js release schedule, newest first. Rejects if the schedule can't be fetched or is invalid. */
+export const getVersions = () => {
+  versionsPromise ??= fetchVersions();
+  return versionsPromise;
+};
 
-const responseValidator = z.record(versionNameValidator, versionDataValidator);
-
-export const getVersions = async (): Promise<NodeJsVersion[]> => {
-  const response = await fetch(
-    "https://raw.githubusercontent.com/nodejs/Release/main/schedule.json"
-  );
+const fetchVersions = async () => {
+  const response = await fetch(scheduleUrl);
 
   if (!response.ok) {
-    throw new Error("Invalid response from GitHub");
+    throw new Error(`Invalid response from GitHub: ${response.status} ${response.statusText}`);
   }
 
-  const responseBody = await response.json();
-  const parsedResponse = responseValidator.parse(responseBody);
+  const responseBody: unknown = await response.json();
+  const versions = parseVersions(responseBody);
 
-  const versions: NodeJsVersion[] = [];
-
-  for (const versionName in parsedResponse) {
-    const { codename, start, lts, maintenance, end } = parsedResponse[versionName];
-    versions.push(new NodeJsVersion(versionName, codename, start, lts, maintenance, end));
-  }
-
-  return versions;
+  return versions.reverse();
 };

@@ -2,10 +2,16 @@
   "extends": "@license-cop/permissive",
   "packages": [
     "caniuse-lite",
-    // sharp's prebuilt libvips (LGPL-3.0-or-later), pulled in as an optional dependency of next.
-    // Only used at build time: the site is a static export and only ./out is published, so the
+    // sharp's prebuilt libvips (LGPL-3.0-or-later), pulled in as an optional dependency of astro.
+    // Only used at build time: the site is a static build and only ./dist is published, so the
     // library is never distributed.
     "@img/sharp-libvips-linux-x64",
-    "@img/sharp-libvips-linuxmusl-x64"
+    "@img/sharp-libvips-linuxmusl-x64",
+    // lightningcss (MPL-2.0), pulled in by vite, which astro builds with. MPL-2.0 is file-level
+    // copyleft and this is an unmodified build tool, so it is only used at build time and never
+    // distributed.
+    "lightningcss",
+    "lightningcss-linux-x64-gnu",
+    "lightningcss-linux-x64-musl"
   ]
 }

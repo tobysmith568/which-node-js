@@ -1,0 +1,43 @@
+---
+import HorizontalMenu from "./HorizontalMenu.astro";
+import Link from "./Link.astro";
+
+const menuItems = [
+  { name: "Home", href: "/" },
+  { name: "FAQ", href: "/faq" },
+  { name: "GitHub", href: "https://github.com/tobysmith568/which-node-js", newTab: true },
+  { name: "Terms", href: "/terms" },
+  { name: "Privacy", href: "/privacy" },
+  { name: "Third-Party Licenses", href: "/third-party" }
+];
+---
+
+<footer>
+  <HorizontalMenu label="Footer" {menuItems} />
+  <p>
+    This website is unofficial. It is not related to, or endorsed by,{" "}
+    <Link href="https://nodejs.org" newTab>Node.js</Link>{" "}
+    or{" "}
+    <Link href="https://openjsf.org" newTab>the OpenJS Foundation</Link>.
+    <br />
+    This website does not contain legal or security-related advice.
+  </p>
+  <p>
+    Made by <Link href="https://tobysmith.uk">Toby Smith</Link> with <span class="heart">❤</span> for
+    Node.js and open-source!
+  </p>
+</footer>
+
+<style>
+  footer {
+    background-color: #333;
+    color: #fff;
+    padding: 0.5em;
+    min-height: 3em;
+    text-align: center;
+  }
+
+  .heart {
+    color: #f00;
+  }
+</style>

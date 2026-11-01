@@ -1,0 +1,60 @@
+---
+interface Props {
+  /** Whether the site title is the page's `h1`. Pages which have their own `h1` use a paragraph instead. */
+  titleIsH1: boolean;
+}
+
+const { titleIsH1 } = Astro.props;
+
+const Title = titleIsH1 ? "h1" : "p";
+---
+
+<header>
+  <Title class="title">
+    <span>Which Version of</span>
+    <span class="logo-wrapper">
+      <span class="logo">
+        <img src="/node-js-logo.svg" alt="Node.js" width={120} height={72} />
+      </span>
+      ?
+    </span>
+  </Title>
+  <p class="subtitle">
+    An <i>unofficial</i> guide to which Node.js versions you should be using.
+  </p>
+</header>
+
+<style>
+  header {
+    background-color: #333;
+    display: grid;
+    text-align: center;
+    padding: 0.5em;
+  }
+
+  .title {
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+    font-size: 2em;
+    font-weight: bold;
+    margin: 0.67em 0 0;
+  }
+
+  .subtitle {
+    color: #fff;
+  }
+
+  .logo-wrapper {
+    display: flex;
+    align-items: center;
+  }
+
+  .logo {
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+  }
+</style>

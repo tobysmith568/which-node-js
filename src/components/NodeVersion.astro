@@ -1,0 +1,25 @@
+---
+import { getUntilStatus } from "../data/untilStatus";
+import FormattedDate from "./FormattedDate.astro";
+
+interface Props {
+  version: string;
+  codename?: string | undefined;
+  until?: Date | undefined;
+}
+
+const { version, codename, until } = Astro.props;
+
+const untilStatus = getUntilStatus(until);
+---
+
+<div>
+  {version}{codename && <> ({codename})</>}{untilStatus === "tbc" && <span> until TBC</span>}{
+    until && untilStatus === "upcoming" && (
+      <>
+        {" "}
+        until <FormattedDate date={until} />
+      </>
+    )
+  }
+</div>
