@@ -54,7 +54,7 @@
     "generate-license-file": "^4.1.0",
     "http-server": "^14.1.1",
     "license-cop": "^2.2.1",
-    "typescript": "5.9.3"
+    "typescript": "6.0.3"
   },
   "trustedDependencies": [
     "sharp",
